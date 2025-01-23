@@ -1,0 +1,64 @@
+/* Collection button styles */
+.add-to-collection-button {
+  width: 25%;
+  margin: 20px auto;
+  border-style: dotted;
+  color: white;
+  background-color: inherit;
+  border-color: aqua;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 16px;
+  display: block;
+}
+
+/* Collection boc container */
+.collection-container {
+  width: 90%;
+  max-width: 80%;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #222;
+  border: 2px solid aqua;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Collection box */
+.collection-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Collected images */
+.collection-box img {
+  width: 40%;
+  height: auto;
+  border: 2px solid aqua;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* For Phones (Up to 600px) */
+@media (max-width: 600px) {
+  .generate-image-button, .add-to-collection-button {
+    width: 80%;
+    font-size: 14px;
+  }
+  .collection-box img {
+    width: 100%;
+  }
+}
+/* For iPads (601px to 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .generate-image-button, .add-to-collection-button {
+    width: 60%;
+    font-size: 15px;
+  }
+}
+
+/*# sourceMappingURL=collection.css.map */

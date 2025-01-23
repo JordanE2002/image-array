@@ -1,0 +1,26 @@
+header {
+  padding: 20px;
+  background-color: aqua;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2em; /* Title font size */
+  margin: 0; /* Remove default margin */
+  color: black; /* Set header text color */
+}
+
+/* For Phones (Up to 600px) */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.5em;
+  }
+}
+/* For iPads (601px to 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  header h1 {
+    font-size: 1.8em;
+  }
+}
+
+/*# sourceMappingURL=header.css.map */
