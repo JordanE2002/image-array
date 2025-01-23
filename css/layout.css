@@ -7,19 +7,4 @@ body {
   overflow-x: hidden;
 }
 
-/* For Phones (Up to 600px) */
-@media (max-width: 600px) {
-  body {
-    padding: 10px;
-  }
-}
-@media (min-width: 601px) and (max-width: 1024px) {
-  #button_style {
-    width: 60%;
-    margin: 20px auto;
-    font-size: 15px;
-    padding: 10px;
-  }
-}
-
 /*# sourceMappingURL=layout.css.map */
