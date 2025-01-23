@@ -45,9 +45,9 @@
 
 /* For Phones (Up to 600px) */
 @media (max-width: 600px) {
-  .generate-image-button, .add-to-collection-button {
-    width: 80%;
-    font-size: 14px;
+  .add-to-collection-button {
+    width: 50%;
+    font-size: 12px;
   }
   .collection-box img {
     width: 100%;
@@ -55,7 +55,7 @@
 }
 /* For iPads (601px to 1024px) */
 @media (min-width: 601px) and (max-width: 1024px) {
-  .generate-image-button, .add-to-collection-button {
+  .add-to-collection-button {
     width: 60%;
     font-size: 15px;
   }
