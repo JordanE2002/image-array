@@ -1,4 +1,4 @@
-// Object to track images added for each email
+// Object to track images added for each email (in-memory storage only)
 const emailImageMap = {};
 
 // Function to generate a random image URL with a unique query parameter to prevent caching
@@ -38,49 +38,75 @@ function addToCollection() {
 
     // Initialize the email in the map if it doesn't exist
     if (!emailImageMap[email]) {
-        emailImageMap[email] = new Set();
+        emailImageMap[email] = [];
     }
 
     // Check if the image already exists for this email
-    if (emailImageMap[email].has(imageUrl)) {
+    if (emailImageMap[email].includes(imageUrl)) {
         alert("You have already added this image to your collection for the provided email.");
         return; // Prevent duplicates
     }
 
-    // Add the image URL to the Set for this email
-    emailImageMap[email].add(imageUrl);
+    // Add the image URL to the array for this email
+    emailImageMap[email].push(imageUrl);
 
-    // Clear all existing collections except for the current email
+    // Update the dropdown
+    updateEmailDropdown();
+
+    // Show the collection for the current email
+    loadEmailCollection(email);
+}
+
+// Function to update the email dropdown
+function updateEmailDropdown() {
+    const dropdown = document.querySelector('#email-dropdown');
+    dropdown.innerHTML = '<option value="">--Select Email--</option>'; // Reset the dropdown
+
+    for (const email in emailImageMap) {
+        const option = document.createElement('option');
+        option.value = email;
+        option.textContent = email;
+        dropdown.appendChild(option);
+    }
+}
+
+// Function to load and display the collection for a selected email
+function loadEmailCollection(selectedEmail = null) {
+    const dropdown = document.querySelector('#email-dropdown');
+    const email = selectedEmail || dropdown.value;
+
+    if (!email || !emailImageMap[email]) {
+        return; // No email selected or no collection found
+    }
+
     const mainCollectionContainer = document.querySelector('#main-collection-container');
-    mainCollectionContainer.innerHTML = "";
+    mainCollectionContainer.innerHTML = ""; // Clear existing collections
 
-    // Create a new collection container for this email
     const emailContainer = document.createElement('div');
     emailContainer.classList.add('email-collection-container');
 
-    // Add a title for the email
     const emailTitle = document.createElement('h3');
     emailTitle.textContent = `Collection for: ${email}`;
     emailTitle.classList.add('email-title');
 
-    // Create the collection box for this email
     const emailCollectionBox = document.createElement('div');
     emailCollectionBox.classList.add('collection-box');
     emailCollectionBox.id = `collection-box-${email}`;
 
-    // Add images from the email's collection
     emailImageMap[email].forEach((url) => {
         const imgElement = document.createElement('img');
         imgElement.src = url;
         emailCollectionBox.appendChild(imgElement);
     });
 
-    // Append the email title and the collection box to the container
     emailContainer.appendChild(emailTitle);
     emailContainer.appendChild(emailCollectionBox);
-
-    // Append the email container to the main collection container
     mainCollectionContainer.appendChild(emailContainer);
-
-
 }
+
+// Load email dropdown and collections on page load
+document.addEventListener('DOMContentLoaded', () => {
+    updateEmailDropdown();
+    const dropdown = document.querySelector('#email-dropdown');
+    dropdown.value = ""; // Reset dropdown selection
+});

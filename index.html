@@ -7,10 +7,8 @@
     <title>Generate Random Images using JavaScript</title>
 
     <link rel="stylesheet" href="css/main.css">
-
 </head>
 <body>
-   
     <header>
         <h1>Generate Random Images</h1>
         <p>By Jordan English</p>
@@ -33,6 +31,14 @@
         <div class="email-section">
             <input type="email" id="email-input" placeholder="Enter your email" required>
             <button class="add-to-collection-button" onclick="addToCollection();">Add to Collection</button>
+        </div>
+
+        <!-- Dropdown for selecting saved emails -->
+        <div class="dropdown-section">
+            <label for="email-dropdown">Select an email to view the collection:</label>
+            <select id="email-dropdown" onchange="loadEmailCollection();">
+                <option value="">--Select Email--</option>
+            </select>
         </div>
 
         <div id="main-collection-container">
