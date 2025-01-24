@@ -81,33 +81,3 @@
 }
 
 
-
-
-
-//Wsn't sure if email needed its own scss file so left it here
-
-/* Email Input Section */
-.email-section {
-    margin: 20px auto; 
-    text-align: center; 
-}
-
-.email-section input {
-    padding: 10px;
-    font-size: 16px;
-    width: 250px; 
-    margin-right: 10px;
-    border-radius: 8px;
-    border: 2px solid aqua;
-    color: black;
-}
-
-.email-section button {
-    padding: 10px;
-    font-size: 16px;
-    background-color: inherit;
-    color: white;
-    border: 2px solid aqua;
-    cursor: pointer;
-    border-radius: 8px;
-}
