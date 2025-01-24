@@ -1,5 +1,5 @@
-/*Generate image button*/
-.generate-image-button{
+/* Generate image button */
+.generate-image-button {
     width: 25%;
     margin: 20px auto; 
     border-style: dotted;
@@ -11,35 +11,28 @@
     font-size: 16px;
     display: block; 
 }
-// Image container
+
+/* Image container */
 .image-container {
     width: 100%; 
     max-width: 620px;
     margin: 10px auto; 
     border: 2px solid aqua; 
-    border-radius: 10px; 
+    border-radius: 10px; /* Rounded corners for the container */
     padding: 10px; 
     background-color: red; 
     text-align: center; 
-
 }
 
-.image-container image {
+.image-container img {
     max-width: 100%; 
     height: auto; 
-    border: none; 
-    border-radius: 8px;
+    border: 2px solid aqua; ; 
+    border-radius: 8px; /* Rounded corners for the image */
 }
-
-
-
-
-
 
 /* For Phones (Up to 600px) */
 @media (max-width: 600px) {
-    
-
     .generate-image-button {
         width: 80%; 
         margin: 20px auto; 
@@ -54,13 +47,12 @@
 
     .image-container img {
         max-width: 100%; 
+        border-radius: 8px; 
     }
-
 }
 
 /* For iPads (601px to 1024px) */
 @media (min-width: 601px) and (max-width: 1024px) {
-
     .generate-image-button {
         width: 60%;
         margin: 20px auto; 
@@ -75,9 +67,7 @@
 
     .image-container img {
         max-width: 100%; 
+        border-radius: 8px; /* Rounded corners for medium screens */
     }
-
-    
 }
-
 

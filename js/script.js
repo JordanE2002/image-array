@@ -1,29 +1,29 @@
 // Object to track images added for each email
 const emailImageMap = {};
 
-// Function to generate a random dog image URL with a unique query parameter to prevent caching
+// Function to generate a random image URL with a unique query parameter to prevent caching
 async function getRandomImage() {
     const url = `https://picsum.photos/620/320?random=${new Date().getTime()}`;
     return url;
 }
 
-// Function to render the dog image (called immediately on page load)
+// Function to render the image (called immediately on page load)
 async function renderImage() {
-    const dogImageUrl = await getRandomImage();
+    const imageUrl = await getRandomImage();
 
     // Update the image source with the new URL
-    const existingImage = document.querySelector('#dog-image');
-    existingImage.src = dogImageUrl;
+    const existingImage = document.querySelector('#random-image');
+    existingImage.src = imageUrl;
 }
 
-// Function to add the current dog image to the collection
+// Function to add the current image to the collection
 function addToCollection() {
     const emailInput = document.querySelector('#email-input');
     const email = emailInput.value.trim(); // Get the value of the email input
 
     // Check if the email field is empty
     if (email === "") {
-        alert("Please enter your email before adding the dog image to your collection.");
+        alert("Please enter your email before adding the image to your collection.");
         return; // Prevent adding to the collection if no email is provided
     }
 
@@ -34,7 +34,7 @@ function addToCollection() {
         return; // Prevent adding to the collection if the email is invalid
     }
 
-    const dogImageUrl = document.querySelector('#dog-image').src;
+    const imageUrl = document.querySelector('#random-image').src;
 
     // Initialize the email in the map if it doesn't exist
     if (!emailImageMap[email]) {
@@ -42,13 +42,13 @@ function addToCollection() {
     }
 
     // Check if the image already exists for this email
-    if (emailImageMap[email].has(dogImageUrl)) {
+    if (emailImageMap[email].has(imageUrl)) {
         alert("You have already added this image to your collection for the provided email.");
         return; // Prevent duplicates
     }
 
     // Add the image URL to the Set for this email
-    emailImageMap[email].add(dogImageUrl);
+    emailImageMap[email].add(imageUrl);
 
     // Clear all existing collections except for the current email
     const mainCollectionContainer = document.querySelector('#main-collection-container');
@@ -82,6 +82,5 @@ function addToCollection() {
     // Append the email container to the main collection container
     mainCollectionContainer.appendChild(emailContainer);
 
-    // Clear the email input field after successful addition
-    emailInput.value = "";
+
 }

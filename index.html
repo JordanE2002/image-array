@@ -7,26 +7,26 @@
     <title>Generate Random Images using JavaScript</title>
 
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="java/script.js">
+    <script src="js/script.js" defer></script> <!-- Corrected the script inclusion -->
 </head>
 <body>
    
     <header>
-        <h1>Random Image Generator</h1>
+        <h1>Generate Random Images</h1>
         <p>By Jordan English</p>
     </header>
 
     <!-- Image container with the button inside -->
     <div class="image-container">
         <!-- Placeholder image that will be updated -->
-        <img id="dog-image" src="https://picsum.photos/620/320?random=1" alt="Random Dog Image">
+        <img id="random-image" src="https://picsum.photos/620/320?random=1" alt="Random Image">
 
         <!-- Button to trigger the rendering of a new random image -->
         <button class="generate-image-button" onclick="renderImage();">To See Random Images Click Here</button>
     </div>
 
     <!-- Collection container to hold the images -->
-    <div id="dog-collection" class="collection-container">
+    <div id="image-collection" class="collection-container">
         <h2>Your Image Collection</h2>
         
         <!-- Email Input and Add to Collection Button -->
@@ -39,7 +39,6 @@
             <!-- This is where the user's email collection boxes will appear -->
         </div>
     </div>
-
 
     <script src="js/script.js"></script>
 </body>
