@@ -24,7 +24,7 @@ function addToCollection() {
     const emailInput = document.querySelector('#email-input');
     const email = emailInput.value.trim(); // Get the value of the email input
     const addToCollectionButton = document.querySelector('.add-to-collection-button'); // Get the button
-    
+
     // Check if the email field is empty
     if (email === "") {
         emailInput.style.border = "2px solid red"; // Add red border for empty email
@@ -116,6 +116,24 @@ function loadEmailCollection(selectedEmail = null) {
     mainCollectionContainer.appendChild(emailContainer);
 }
 
+// Function to delete all collections
+function deleteAllCollections() {
+    // Clear the email-image mapping object
+    for (const email in emailImageMap) {
+        delete emailImageMap[email];
+    }
+
+    // Reset the dropdown
+    updateEmailDropdown();
+
+    // Clear the main collection container
+    const mainCollectionContainer = document.querySelector('#main-collection-container');
+    mainCollectionContainer.innerHTML = "";
+
+    // Optionally, show a confirmation message
+    alert("All collections have been deleted!");
+}
+
 // Function to reset input and button appearance
 function resetInputAndButton() {
     const emailInput = document.querySelector('#email-input');
@@ -139,3 +157,66 @@ document.addEventListener('DOMContentLoaded', () => {
     const dropdown = document.querySelector('#email-dropdown');
     dropdown.value = ""; // Reset dropdown selection
 });
+
+
+
+// Function to delete a specific email collection
+function deleteSingleCollection(email) {
+    if (!email || !emailImageMap[email]) return; // Ensure email exists
+
+    // Confirm before deletion
+    const confirmation = confirm(`Are you sure you want to delete the collection for ${email}?`);
+    if (!confirmation) return;
+
+    // Remove the email collection
+    delete emailImageMap[email];
+
+    // Update the dropdown and clear the main collection container
+    updateEmailDropdown();
+    const mainCollectionContainer = document.querySelector('#main-collection-container');
+    mainCollectionContainer.innerHTML = "";
+
+    // Optionally, show a confirmation message
+    alert(`Collection for ${email} has been deleted!`);
+}
+
+// Updated function to load and display the collection for a selected email
+function loadEmailCollection(selectedEmail = null) {
+    const dropdown = document.querySelector('#email-dropdown');
+    const email = selectedEmail || dropdown.value;
+
+    if (!email || !emailImageMap[email]) {
+        return; // No email selected or no collection found
+    }
+
+    const mainCollectionContainer = document.querySelector('#main-collection-container');
+    mainCollectionContainer.innerHTML = ""; // Clear existing collections
+
+    const emailContainer = document.createElement('div');
+    emailContainer.classList.add('email-collection-container');
+
+    const emailTitle = document.createElement('h3');
+    emailTitle.textContent = `Collection for: ${email}`;
+    emailTitle.classList.add('email-title');
+
+    // Create a "Delete Collection" button
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = "Delete Collection";
+    deleteButton.classList.add('delete-single-button'); // Add styling class
+    deleteButton.onclick = () => deleteSingleCollection(email);
+
+    const emailCollectionBox = document.createElement('div');
+    emailCollectionBox.classList.add('collection-box');
+    emailCollectionBox.id = `collection-box-${email}`;
+
+    emailImageMap[email].forEach((url) => {
+        const imgElement = document.createElement('img');
+        imgElement.src = url;
+        emailCollectionBox.appendChild(imgElement);
+    });
+
+    emailContainer.appendChild(emailTitle);
+    emailContainer.appendChild(deleteButton); // Add the delete button
+    emailContainer.appendChild(emailCollectionBox);
+    mainCollectionContainer.appendChild(emailContainer);
+}
