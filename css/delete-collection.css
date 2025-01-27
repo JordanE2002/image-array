@@ -1,57 +1,77 @@
+/* Delete Buttons Container */
+.delete-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Adds space between the buttons */
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 600px; /* Optional: to control the max width */
+  margin: 0 auto; /* Center the container */
+}
+
+/* Delete All Button Container */
+.delete-all-button-container,
+.delete-button-container {
+  width: 48%; /* Adjust button width */
+}
+
+/* Labels for the buttons */
+.delete-all-button-container label,
+.delete-button-container label {
+  display: block; /* Make labels block-level to sit above buttons */
+  margin-bottom: 8px; /* Add space between label and button */
+  font-weight: bold;
+  text-align: center; /* Center-align the labels */
+  margin-top: 10px;
+}
+
 /* Delete All Button Styles */
 .delete-all-button {
-  width: 25%;
-  margin: 20px auto;
+  width: 100%; /* Full width within the container */
   padding: 10px;
   font-size: 16px;
   background-color: inherit;
   color: white;
-  border: 2px dotted red;
+  border: 2px dotted orange;
   border-radius: 8px;
   cursor: pointer;
-  display: block;
   text-align: center;
   transition: all 0.3s ease;
 }
 
 .delete-all-button:hover {
-  background-color: red;
+  background-color: orange;
   color: white;
   border-color: white;
 }
 
-@media (max-width: 600px) {
-  .delete-all-button {
-    width: 50%;
-    font-size: 12px;
-    padding: 8px;
-  }
-}
-/* For Tablets (601px to 1024px) */
-@media (min-width: 601px) and (max-width: 1024px) {
-  .delete-all-button {
-    width: 60%;
-    font-size: 15px;
-    padding: 9px;
-  }
-}
 /* Delete Button Styles */
 .delete-button {
-  margin: 10px;
+  width: 100%; /* Full width within the container */
   padding: 10px 15px;
   font-size: 14px;
   background-color: inherit;
   color: white;
-  border: 2px solid red;
+  border: 2px solid orange;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .delete-button:hover {
-  background-color: red;
+  background-color: orange;
   color: white;
   border-color: white;
+}
+
+/* For Mobile View (max-width: 600px) */
+@media (max-width: 600px) {
+  .delete-buttons-container {
+    flex-direction: column; /* Stack buttons vertically on smaller screens */
+  }
+  .delete-all-button-container, .delete-button-container {
+    width: 100%; /* Make buttons full width on mobile */
+  }
 }
 
 /*# sourceMappingURL=delete-collection.css.map */

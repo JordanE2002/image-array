@@ -155,21 +155,26 @@ function deleteCollection() {
         return;
     }
 
-    const confirmation = confirm(`Are you sure you want to delete the collection for ${email}?`);
-    if (!confirmation) return;
-
+    // Directly delete the collection without asking for confirmation
     delete emailImageMap[email];
     updateEmailDropdown();
     clearCollectionsAndInput();
 
-    alert(`Collection for ${email} has been deleted!`);
+    // Change the label text and style temporarily
+    const deleteLabel = document.querySelector('.delete-button-container label');
+    deleteLabel.textContent = `Collection for ${email} has been deleted!`;
+    deleteLabel.style.color = "green"; // Add color change for feedback
+
+    // Reset label text and color after 5 seconds
+    setTimeout(() => {
+        deleteLabel.textContent = "Delete Collection in email box";  // Original label text
+        deleteLabel.style.color = ""; // Reset color
+    }, 5000);  // 5 seconds timeout
 }
 
 // Function to delete all collections
 function deleteAllCollections() {
-    const confirmation = confirm("Are you sure you want to delete all collections?");
-    if (!confirmation) return;
-
+    // Directly delete all collections without asking for confirmation
     for (const email in emailImageMap) {
         delete emailImageMap[email];
     }
@@ -177,7 +182,16 @@ function deleteAllCollections() {
     updateEmailDropdown();
     clearCollectionsAndInput();
 
-    alert("All collections have been deleted!");
+    // Change the label text and style temporarily
+    const deleteAllLabel = document.querySelector('.delete-all-button-container label');
+    deleteAllLabel.textContent = "All collections have been deleted!";
+    deleteAllLabel.style.color = "green"; // Add color change for feedback
+
+    // Reset label text and color after 5 seconds
+    setTimeout(() => {
+        deleteAllLabel.textContent = "Delete All Collections";  // Original label text
+        deleteAllLabel.style.color = ""; // Reset color
+    }, 5000);  // 5 seconds timeout
 }
 
 // Helper function to clear collections and reset input

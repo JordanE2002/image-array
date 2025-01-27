@@ -46,13 +46,19 @@
                 <!-- This is where the user's email collection boxes will appear -->
             </div>
     
-
-        <button class="delete-button" onclick="deleteCollection();">Delete Collection</button>
-        
-        <!-- Add the Delete All Collection button -->
-        <div class="delete-all-section">
-            <button class="delete-all-button" onclick="deleteAllCollections();">Delete All Collections</button>
-        </div>
+            <div class="delete-buttons-container">
+                <!-- Delete All Button -->
+                <div class="delete-all-button-container">
+                    <label for="delete-all">Delete All Collections</label>
+                    <button id="delete-all" class="delete-all-button" onclick="deleteAllCollections();">Delete All Collections</button>
+                </div>
+            
+                <!-- Delete Button -->
+                <div class="delete-button-container">
+                    <label for="delete">Delete Collection in email box</label>
+                    <button id="delete" class="delete-button" onclick="deleteCollection();">Delete Collection</button>
+                </div>
+            </div>
 
    
         
