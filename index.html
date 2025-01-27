@@ -14,49 +14,49 @@
         <p>By Jordan English</p>
     </header>
 
-    <!-- Image container with the button inside -->
+    <!-- Image container with the button and email section inside -->
     <div class="image-container">
         <!-- Placeholder image that will be updated -->
         <img id="random-image" src="https://picsum.photos/620/320?random=1" alt="Random Image">
 
         <!-- Button to trigger the rendering of a new random image -->
         <button class="generate-image-button" onclick="renderImage();">To See Random Images Click Here</button>
+
+        <!-- Email Input and Add to Collection Button next to the Generate Image button -->
+        <div class="email-section">
+            <input type="email" id="email-input" placeholder="Enter your email" required>
+            <button class="add-to-collection-button" onclick="addToCollection();">Add to Collection</button>
+        </div>
     </div>
 
     <!-- Collection container to hold the images -->
     <div id="image-collection" class="collection-container">
         <h2>Your Image Collection</h2>
-        
-         <!-- Email Input and Add to Collection Button -->
-    <div class="email-section">
-        <input type="email" id="email-input" placeholder="Enter your email" required>
-        <button class="add-to-collection-button" onclick="addToCollection();">Add to Collection</button>
-    </div>
 
-    <button class="delete-button" onclick="deleteCollection();">Delete Collection</button>
-        
-            <!-- Add the Delete All Collection button -->
-            <div class="delete-all-section">
-                <button class="delete-all-button" onclick="deleteAllCollections();">Delete All Collections</button>
+
+             <!-- Dropdown for selecting saved emails -->
+             <div class="dropdown-section">
+                <label for="email-dropdown">Select an email to view the collection:</label>
+                <select id="email-dropdown" onchange="loadEmailCollection();">
+                    <option value="">--Select Email--</option>
+                </select>
             </div>
-            
-        <!-- Dropdown for selecting saved emails -->
-        <div class="dropdown-section">
-            <label for="email-dropdown">Select an email to view the collection:</label>
-            <select id="email-dropdown" onchange="loadEmailCollection();">
-                <option value="">--Select Email--</option>
-            </select>
-        </div>
 
+            <div id="main-collection-container">
+                <!-- This is where the user's email collection boxes will appear -->
+            </div>
+    
+
+        <button class="delete-button" onclick="deleteCollection();">Delete Collection</button>
         
-
-        <div id="main-collection-container">
-            <!-- This is where the user's email collection boxes will appear -->
+        <!-- Add the Delete All Collection button -->
+        <div class="delete-all-section">
+            <button class="delete-all-button" onclick="deleteAllCollections();">Delete All Collections</button>
         </div>
+
+   
+        
     </div>
-
->
-
 
     <script src="js/script.js"></script>
 </body>

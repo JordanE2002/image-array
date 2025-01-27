@@ -59,7 +59,7 @@ body {
   border: 2px solid aqua;
   border-radius: 10px; /* Rounded corners for the container */
   padding: 10px;
-  background-color: red;
+  background-color: grey;
   text-align: center;
 }
 
@@ -202,6 +202,7 @@ body {
   font-size: 16px;
   background-color: inherit;
   color: white;
+  background-color: plum;
   border: 2px solid aqua;
   cursor: pointer;
   border-radius: 8px;
@@ -311,7 +312,7 @@ body {
 }
 /* Delete Button Styles */
 .delete-button {
-  margin-left: 10px;
+  margin: 10px;
   padding: 10px 15px;
   font-size: 14px;
   background-color: inherit;
