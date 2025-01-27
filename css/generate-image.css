@@ -18,7 +18,7 @@
   max-width: 620px;
   margin: 10px auto;
   border: 2px solid aqua;
-  border-radius: 10px; /* Rounded corners for the container */
+  border-radius: 10px;
   padding: 10px;
   background-color: grey;
   text-align: center;
@@ -28,7 +28,7 @@
   max-width: 100%;
   height: auto;
   border: 2px solid aqua;
-  border-radius: 8px; /* Rounded corners for the image */
+  border-radius: 8px;
 }
 
 /* For Phones (Up to 600px) */
@@ -62,7 +62,7 @@
   }
   .image-container img {
     max-width: 100%;
-    border-radius: 8px; /* Rounded corners for medium screens */
+    border-radius: 8px;
   }
 }
 
