@@ -19,7 +19,7 @@
     max-width: 80%; 
     margin: 30px auto; 
     padding: 20px; 
-    background-color: #222; 
+    background-color: #B4436C; 
     border: 2px solid aqua; 
     border-radius: 10px;
     text-align: center;
@@ -90,8 +90,9 @@
     margin-right: 10px;
     border-radius: 8px;
     border: 2px solid aqua;
-    color: black;
+    color: white;
     outline: none; /* Prevents unwanted focus outline */
+    background-color: #434371;
 }
 
 /* Email Submit Button */
@@ -129,16 +130,12 @@
     border: 2px solid aqua;
     border-radius: 8px;
     outline: none;
-    background-color: #222;
+    background-color: #434371;
     color: white;
     appearance: none; /* Removes default dropdown styling */
-    box-sizing: border-box;
+
 }
 
-/* Arrow Indicator for Dropdown */
-.dropdown-section select:focus {
-    border-color: #00ffcc;
-}
 
 /* Responsive Styles */
 
