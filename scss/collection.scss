@@ -1,4 +1,6 @@
-/* Collection Button Styles */
+
+   //Collection Button Styles
+
 .add-to-collection-button {
     width: 25%; 
     margin: 20px auto; 
@@ -13,7 +15,9 @@
     text-align: center;
 }
 
-/* Collection Container Styles */
+
+   //Collection Container Styles
+
 .collection-container {
     width: 90%; 
     max-width: 80%; 
@@ -24,84 +28,57 @@
     border-radius: 10px;
     text-align: center;
     color: white;
-    box-sizing: border-box; /* Prevents padding from affecting width */
 }
 
-/* Collection Box Layout */
+   //Collection Box Layout
+
 .collection-box {
     display: flex; 
     flex-wrap: wrap;
     justify-content: center; 
     gap: 15px; 
     margin-top: 20px; 
-    padding: 0;  /* Ensure no extra padding distorts the layout */
-    box-sizing: border-box; /* Ensures that padding and borders are accounted for */
+    padding: 0;  
 }
 
-/* Collected Images */
 .collection-box img {
     width: 40%; 
     height: auto;
     border: 2px solid aqua; 
     border-radius: 8px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    object-fit: cover; /* Ensures that images scale without distortion */
+    object-fit: cover; 
 }
 
-/* Responsive Styles for Phones (max-width: 767px) */
-@media (max-width: 767px) {
-    .add-to-collection-button {
-        width: 50%; 
-        font-size: 12px; 
-    }
 
-    .collection-box img {
-        width: 100%;  /* Images should take full width in mobile */
-    }
-}
+   //Email Input Section
 
-/* Responsive Styles for Tablets (601px to 1024px) */
-@media (min-width: 768px) and (max-width: 1024px) {
-    .add-to-collection-button {
-        width: 60%;
-        font-size: 15px; 
-    }
-
-    .collection-box img {
-        width: 45%; /* Smaller images for tablets */
-    }
-}
-
-/* Email Input Section */
 .email-section {
     margin: 20px auto; 
     text-align: center; 
     width: 90%;
-    max-width: 600px; /* Make it more centered and appropriate in size */
+    max-width: 600px; 
     box-sizing: border-box;
 }
 
-/* Email Input Field */
 .email-section input {
     padding: 10px;
     font-size: 16px;
-    width: 100%; /* Takes full width for better responsiveness */
-    max-width: 300px; /* Limit the width to prevent it from becoming too wide */
+    width: 100%; 
+    max-width: 300px; 
     margin-right: 10px;
     border-radius: 8px;
     border: 2px solid aqua;
     color: white;
-    outline: none; /* Prevents unwanted focus outline */
+    outline: none; 
     background-color: #434371;
 }
 
-/* Email Submit Button */
 .email-section button {
     padding: 10px;
     font-size: 16px;
-    background-color: inherit;
-    color: white;
     background-color: plum;
+    color: white;
     border: 2px solid aqua;
     cursor: pointer;
     border-radius: 8px;
@@ -109,7 +86,9 @@
     text-align: center;
 }
 
-/* Dropbox Styles */
+
+   //Dropdown Section
+
 .dropdown-section {
     margin: 20px auto;
     text-align: center;
@@ -132,15 +111,26 @@
     outline: none;
     background-color: #434371;
     color: white;
-    appearance: none; /* Removes default dropdown styling */
-
+    appearance: none; 
 }
 
 
-/* Responsive Styles */
+  // Responsive Styles
+
 
 /* For Small Screens (Up to 767px) */
 @media (max-width: 767px) {
+
+    .add-to-collection-button {
+        width: 50%; 
+        font-size: 12px; 
+    }
+
+ 
+    .collection-box img {
+        width: 100%;  
+    }
+
     .email-section {
         width: 100%;  
         padding: 10px; 
@@ -148,7 +138,7 @@
 
     .email-section input,
     .email-section button {
-        width: 100%;  
+        width: 80%;  
         margin-right: 0;  
     }
 
@@ -156,13 +146,25 @@
         margin-top: 10px;  
     }
 
+
     .dropdown-section select {
         width: 100%; 
     }
 }
 
-/* For Medium Screens (601px to 1024px) */
-@media (min-width: 768px) and (max-width: 1024px) {
+/* For Medium Screens (768px to 994px) */
+@media (min-width: 768px) and (max-width: 994px) {
+   
+    .add-to-collection-button {
+        width: 60%;
+        font-size: 15px; 
+    }
+
+    .collection-box img {
+        width: 45%; 
+    }
+
+    
     .email-section input {
         width: 70%; 
     }

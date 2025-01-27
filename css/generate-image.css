@@ -48,8 +48,8 @@
     border-radius: 8px;
   }
 }
-/* For iPads (768px to 1024px) */
-@media (min-width: 768px) and (max-width: 1024px) {
+/* For iPads (768px to 994px) */
+@media (min-width: 768px) and (max-width: 994px) {
   .generate-image-button {
     width: 60%;
     margin: 20px auto;
