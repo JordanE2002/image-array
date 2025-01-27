@@ -31,8 +31,8 @@
     border-radius: 8px; 
 }
 
-/* For Phones (Up to 600px) */
-@media (max-width: 600px) {
+/* For Phones (Up to 767px) */
+@media (max-width: 767px) {
     .generate-image-button {
         width: 80%; 
         margin: 20px auto; 
@@ -51,8 +51,8 @@
     }
 }
 
-/* For iPads (601px to 1024px) */
-@media (min-width: 601px) and (max-width: 1024px) {
+/* For iPads (768px to 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
     .generate-image-button {
         width: 60%;
         margin: 20px auto; 

@@ -16,8 +16,8 @@ header p {
   color: black;
 }
 
-/* For Phones (Up to 600px) */
-@media (max-width: 600px) {
+/* For Phones (Up to 767px) */
+@media (max-width: 767px) {
   header h1 {
     font-size: 1.5em;
   }
@@ -70,8 +70,8 @@ body {
   border-radius: 8px;
 }
 
-/* For Phones (Up to 600px) */
-@media (max-width: 600px) {
+/* For Phones (Up to 767px) */
+@media (max-width: 767px) {
   .generate-image-button {
     width: 80%;
     margin: 20px auto;
@@ -87,8 +87,8 @@ body {
     border-radius: 8px;
   }
 }
-/* For iPads (601px to 1024px) */
-@media (min-width: 601px) and (max-width: 1024px) {
+/* For iPads (768px to 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
   .generate-image-button {
     width: 60%;
     margin: 20px auto;
@@ -154,8 +154,8 @@ body {
   object-fit: cover; /* Ensures that images scale without distortion */
 }
 
-/* Responsive Styles for Phones (max-width: 600px) */
-@media (max-width: 600px) {
+/* Responsive Styles for Phones (max-width: 767px) */
+@media (max-width: 767px) {
   .add-to-collection-button {
     width: 50%;
     font-size: 12px;
@@ -165,7 +165,7 @@ body {
   }
 }
 /* Responsive Styles for Tablets (601px to 1024px) */
-@media (min-width: 601px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .add-to-collection-button {
     width: 60%;
     font-size: 15px;
@@ -238,34 +238,34 @@ body {
 }
 
 /* Responsive Styles */
-/* For Small Screens (Up to 600px) */
-@media (max-width: 600px) {
+/* For Small Screens (Up to 767px) */
+@media (max-width: 767px) {
   .email-section {
-    width: 100%; /* Ensure the section takes full width */
-    padding: 10px; /* Add some padding for small screens */
+    width: 100%;
+    padding: 10px;
   }
   .email-section input,
   .email-section button {
-    width: 100%; /* Input and button take full width on small screens */
-    margin-right: 0; /* Remove margin between input and button */
+    width: 100%;
+    margin-right: 0;
   }
   .email-section button {
-    margin-top: 10px; /* Add some spacing between input and button */
+    margin-top: 10px;
   }
   .dropdown-section select {
-    width: 100%; /* Full width for dropdown on mobile */
+    width: 100%;
   }
 }
 /* For Medium Screens (601px to 1024px) */
-@media (min-width: 601px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .email-section input {
-    width: 70%; /* Slightly smaller input width for tablets */
+    width: 70%;
   }
   .email-section button {
-    width: 70%; /* Match button width to input for consistency */
+    width: 70%;
   }
   .dropdown-section select {
-    width: 80%; /* Slightly larger width for dropdown on tablets */
+    width: 80%;
   }
 }
 /* Delete Buttons Container */
@@ -334,8 +334,8 @@ body {
   border-color: white;
 }
 
-/* For Mobile View (max-width: 600px) */
-@media (max-width: 600px) {
+/* For Mobile View (max-width: 767px) */
+@media (max-width: 767px) {
   .delete-buttons-container {
     flex-direction: column;
   }

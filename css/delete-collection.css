@@ -64,8 +64,8 @@
   border-color: white;
 }
 
-/* For Mobile View (max-width: 600px) */
-@media (max-width: 600px) {
+/* For Mobile View (max-width: 767px) */
+@media (max-width: 767px) {
   .delete-buttons-container {
     flex-direction: column;
   }
