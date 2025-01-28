@@ -16,7 +16,7 @@ async function renderImage() {
     const imageUrl = await getRandomImage();
     const existingImage = document.querySelector('#random-image');
     existingImage.src = imageUrl;
-    resetInputAndButton();  // Reset input and button appearance
+    resetInputAndButton();  
 }
 
 // ---------------------------------------------------------
@@ -48,8 +48,7 @@ function addToCollection() {
     resetAddToCollectionButton(addToCollectionButton);
 
     // Update dropdown and display the email's collection
-    updateEmailDropdown();
-    loadEmailCollection(email);
+    updateEmailDropdown(email); // Pass the new email to highlight it
 }
 
 // Function to validate the email input
@@ -89,7 +88,7 @@ function resetAddToCollectionButton(addToCollectionButton) {
 // ---------------------------------------------------------
 
 // Function to update the email dropdown
-function updateEmailDropdown() {
+function updateEmailDropdown(selectedEmail = null) {
     const dropdown = document.querySelector('#email-dropdown');
     dropdown.innerHTML = '<option value="">--Select Email--</option>'; // Reset dropdown
 
@@ -98,10 +97,20 @@ function updateEmailDropdown() {
         const option = document.createElement('option');
         option.value = email;
         option.textContent = email;
+
+        // Automatically select the newly added email
+        if (email === selectedEmail) {
+            option.selected = true;
+        }
+
         dropdown.appendChild(option);
     }
-}
 
+    // Load the collection for the selected email, if provided
+    if (selectedEmail) {
+        loadEmailCollection(selectedEmail);
+    }
+}
 // Function to load and display the collection for a selected email
 function loadEmailCollection(selectedEmail = null) {
     const dropdown = document.querySelector('#email-dropdown');
@@ -144,7 +153,6 @@ function createEmailCollectionContainer(email) {
 
 // Collection Deletion
 
-// Function to delete the collection for the email selected in the dropdown
 // Function to delete the collection for the email selected in the dropdown
 function deleteCollection() {
     const dropdown = document.querySelector('#email-dropdown');
