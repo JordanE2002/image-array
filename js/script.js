@@ -111,6 +111,7 @@ function updateEmailDropdown(selectedEmail = null) {
         loadEmailCollection(selectedEmail);
     }
 }
+
 // Function to load and display the collection for a selected email
 function loadEmailCollection(selectedEmail = null) {
     const dropdown = document.querySelector('#email-dropdown');
@@ -151,7 +152,31 @@ function createEmailCollectionContainer(email) {
 }
 
 
+// ---------------------------------------------------------
 // Collection Deletion
+// ---------------------------------------------------------
+
+// Function to delete all collections
+function deleteAllCollections() {
+    // Directly delete all collections without asking for confirmation
+    for (const email in emailImageMap) {
+        delete emailImageMap[email];
+    }
+
+    updateEmailDropdown();
+    clearCollectionsAndInput();
+
+    // Change the label text and style temporarily
+    const deleteAllLabel = document.querySelector('.delete-all-button-container label');
+    deleteAllLabel.textContent = "All collections have been deleted!";
+    deleteAllLabel.style.color = "green"; // Add color change for feedback
+
+    // Reset label text and color after 5 seconds
+    setTimeout(() => {
+        deleteAllLabel.textContent = "Delete All Collections";  // Original label text
+        deleteAllLabel.style.color = ""; // Reset color
+    }, 5000);  // 5 seconds timeout
+}
 
 // Function to delete the collection for the email selected in the dropdown
 function deleteCollection() {
@@ -188,8 +213,6 @@ function deleteCollection() {
         deleteLabel.style.color = ""; // Reset color
     }, 5000); // 5 seconds timeout
 }
-
-
 
 // Helper function to clear collections and reset input
 function clearCollectionsAndInput() {
@@ -228,3 +251,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const dropdown = document.querySelector('#email-dropdown');
     dropdown.value = "";  // Reset dropdown selection
 });
+
+// Event listener for "Delete All Collections" button
+document.querySelector('#delete-all-collections-button').addEventListener('click', deleteAllCollections);
