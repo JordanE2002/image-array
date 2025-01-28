@@ -19,22 +19,22 @@
         <!-- Placeholder image that will be updated -->
         <img id="random-image" src="https://picsum.photos/620/320?random=1" alt="Random Image">
 
-        <!-- Button to trigger the rendering of a new random image -->
+        <!-- Button to get new image -->
         <button class="generate-image-button" onclick="renderImage();">To See Random Images Click Here</button>
 
-        <!-- Email Input and Add to Collection Button next to the Generate Image button -->
+        <!-- Email input and geberate image button -->
         <div class="email-section">
             <input type="email" id="email-input" placeholder="Enter your email" required>
             <button class="add-to-collection-button" onclick="addToCollection();">Add to Collection</button>
         </div>
     </div>
 
-    <!-- Collection container to hold the images -->
+    <!-- container to ad images -->
     <div id="image-collection" class="collection-container">
         <h2>Your Image Collection</h2>
 
 
-             <!-- Dropdown for selecting saved emails -->
+             <!-- Dropdown emails-->
              <div class="dropdown-section">
                 <label for="email-dropdown">Select an email to view the collection:</label>
                 <select id="email-dropdown" onchange="loadEmailCollection();">
@@ -47,13 +47,13 @@
             </div>
     
             <div class="delete-buttons-container">
-                <!-- Delete All Button -->
+                <!-- Delete everything button -->
                 <div class="delete-all-button-container">
                     <label for="delete-all">Delete All Collections</label>
                     <button id="delete-all" class="delete-all-button" onclick="deleteAllCollections();">Delete All Collections</button>
                 </div>
             
-                <!-- Delete Button -->
+                <!-- Delete one thing button-->
                 <div class="delete-button-container">
                     <label for="delete">Delete Collection in email box</label>
                     <button id="delete" class="delete-button" onclick="deleteCollection();">Delete Collection</button>
