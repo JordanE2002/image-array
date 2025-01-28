@@ -141,58 +141,47 @@ function createEmailCollectionContainer(email) {
     return emailContainer;
 }
 
-// ---------------------------------------------------------
-// Collection Deletion
-// ---------------------------------------------------------
 
-// Function to delete the collection for the email in the input box
+// Collection Deletion
+
+// Function to delete the collection for the email selected in the dropdown
+// Function to delete the collection for the email selected in the dropdown
 function deleteCollection() {
-    const emailInput = document.querySelector('#email-input');
-    const email = emailInput.value.trim();
+    const dropdown = document.querySelector('#email-dropdown');
+    const email = dropdown.value; // Use the selected email from the dropdown
+    const deleteLabel = document.querySelector('.delete-button-container label');
 
     if (!email || !emailImageMap[email]) {
-        alert("No collection found for the provided email.");
-        return;
+        // If no email is selected or the collection is not found
+        deleteLabel.textContent = "No email found!";
+        deleteLabel.style.color = "red"; // Display message in red
+
+        // Reset label text and color after 5 seconds
+        setTimeout(() => {
+            deleteLabel.textContent = "Delete Collection in dropdown"; // Original label text
+            deleteLabel.style.color = ""; // Reset color
+        }, 5000); // 5 seconds timeout
+
+        return; // Exit function
     }
 
-    // Directly delete the collection without asking for confirmation
+    // Directly delete the collection
     delete emailImageMap[email];
     updateEmailDropdown();
     clearCollectionsAndInput();
 
-    // Change the label text and style temporarily
-    const deleteLabel = document.querySelector('.delete-button-container label');
+    // Change the label text and style to indicate success
     deleteLabel.textContent = `Collection for ${email} has been deleted!`;
-    deleteLabel.style.color = "green"; // Add color change for feedback
+    deleteLabel.style.color = "green"; // Display success message in green
 
     // Reset label text and color after 5 seconds
     setTimeout(() => {
-        deleteLabel.textContent = "Delete Collection in email box";  // Original label text
+        deleteLabel.textContent = "Delete Collection in dropdown"; // Original label text
         deleteLabel.style.color = ""; // Reset color
-    }, 5000);  // 5 seconds timeout
+    }, 5000); // 5 seconds timeout
 }
 
-// Function to delete all collections
-function deleteAllCollections() {
-    // Directly delete all collections without asking for confirmation
-    for (const email in emailImageMap) {
-        delete emailImageMap[email];
-    }
 
-    updateEmailDropdown();
-    clearCollectionsAndInput();
-
-    // Change the label text and style temporarily
-    const deleteAllLabel = document.querySelector('.delete-all-button-container label');
-    deleteAllLabel.textContent = "All collections have been deleted!";
-    deleteAllLabel.style.color = "green"; // Add color change for feedback
-
-    // Reset label text and color after 5 seconds
-    setTimeout(() => {
-        deleteAllLabel.textContent = "Delete All Collections";  // Original label text
-        deleteAllLabel.style.color = ""; // Reset color
-    }, 5000);  // 5 seconds timeout
-}
 
 // Helper function to clear collections and reset input
 function clearCollectionsAndInput() {
