@@ -39,7 +39,7 @@ body {
 
 /* Generate image button */
 .generate-image-button {
-  width: 25%;
+  width: 50%;
   margin: 20px auto;
   border-style: dotted;
   color: white;
@@ -110,7 +110,7 @@ body {
   }
 }
 .add-to-collection-button {
-  width: 25%;
+  width: 30%;
   margin: 20px auto;
   padding: 10px;
   font-size: 16px;
