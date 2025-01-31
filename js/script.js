@@ -167,12 +167,11 @@ function deleteAllCollections() {
     // Change the label text and style temporarily
     const deleteAllLabel = document.querySelector('.delete-all-button-container label');
     deleteAllLabel.textContent = "All collections have been deleted!";
-    deleteAllLabel.style.color = "green";
 
     // Reset label text and color after 5 seconds
     setTimeout(() => {
         deleteAllLabel.textContent = "Delete All Collections";  
-        deleteAllLabel.style.color = ""; 
+
     }, 5000);
 }
 
@@ -185,7 +184,7 @@ function deleteCollection() {
     if (!email || !emailImageMap[email]) {
         // If no email is selected or the collection is not found
         deleteLabel.textContent = "No email found!";
-        deleteLabel.style.color = "red"; 
+
 
         // Reset label text and color after 5 seconds
         setTimeout(() => {
@@ -203,7 +202,6 @@ function deleteCollection() {
 
     // Change the label text and style to indicate success
     deleteLabel.textContent = `Collection for ${email} has been deleted!`;
-    deleteLabel.style.color = "green"; // Display success message in green
 
     // Reset label text and color after 5 seconds
     setTimeout(() => {
@@ -249,5 +247,4 @@ document.addEventListener('DOMContentLoaded', () => {
     dropdown.value = "";  // Reset dropdown selection
 });
 
-// Event listener for "Delete All Collections" button
-document.querySelector('#delete-all-collections-button').addEventListener('click', deleteAllCollections);
+
