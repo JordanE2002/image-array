@@ -5,14 +5,14 @@ const emailImageMap = {};
 async function getFixedRandomImage() {
     try {
         const response = await fetch('https://picsum.photos/620/320');
-        return response.url; // Store the fixed image URL
+        return response.url; 
     } catch (error) {
         console.error('Error fetching image:', error);
         return null;
     }
 }
 
-// Function to render a fixed random image
+
 // Function to render a fixed random image on page load and button click
 async function renderImage() {
     const existingImage = document.querySelector('#random-image');
@@ -32,7 +32,7 @@ async function renderImage() {
 
 // Ensure the first image is properly set on page load
 document.addEventListener('DOMContentLoaded', async () => {
-    await renderImage(); // Load first image correctly
+    await renderImage(); 
     updateEmailDropdown();
 });
 // Function to add the current image to the collection
