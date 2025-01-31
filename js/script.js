@@ -1,9 +1,6 @@
 // Object to track images added for each email 
 const emailImageMap = {};
 
-// Image generation 
-
-
 // Function to generate a random image URL with a unique query parameter to prevent caching
 async function getRandomImage() {
     const url = `https://picsum.photos/620/320?random=${new Date().getTime()}`;
@@ -17,9 +14,6 @@ async function renderImage() {
     existingImage.src = imageUrl;
     resetInputAndButton();  
 }
-
-// Collection Management
-
 
 // Function to add the current image to the collection
 function addToCollection() {
@@ -80,10 +74,6 @@ function resetAddToCollectionButton(addToCollectionButton) {
     addToCollectionButton.style.border = "";
     addToCollectionButton.textContent = "Add to Collection";
 }
-
-
-// Dropdown and Collection Display
-
 
 // Function to update the email dropdown
 function updateEmailDropdown(selectedEmail = null) {
@@ -149,14 +139,8 @@ function createEmailCollectionContainer(email) {
     return emailContainer;
 }
 
-
-
-// Deletion buttons
-
-
 // Function to delete all collections
 function deleteAllCollections() {
-
     for (const email in emailImageMap) {
         delete emailImageMap[email];
     }
@@ -168,10 +152,8 @@ function deleteAllCollections() {
     const deleteAllLabel = document.querySelector('.delete-all-button-container label');
     deleteAllLabel.textContent = "All collections have been deleted!";
 
-    // Reset label text and color after 5 seconds
     setTimeout(() => {
         deleteAllLabel.textContent = "Delete All Collections";  
-
     }, 5000);
 }
 
@@ -182,16 +164,11 @@ function deleteCollection() {
     const deleteLabel = document.querySelector('.delete-button-container label');
 
     if (!email || !emailImageMap[email]) {
-        // If no email is selected or the collection is not found
         deleteLabel.textContent = "No email found!";
 
-
-        // Reset label text and color after 5 seconds
         setTimeout(() => {
             deleteLabel.textContent = "Delete Collection in dropdown"; 
-            deleteLabel.style.color = "";
         }, 5000); 
-
         return; 
     }
 
@@ -200,14 +177,11 @@ function deleteCollection() {
     updateEmailDropdown();
     clearCollectionsAndInput();
 
-    // Change the label text and style to indicate success
     deleteLabel.textContent = `Collection for ${email} has been deleted!`;
 
-    // Reset label text and color after 5 seconds
     setTimeout(() => {
-        deleteLabel.textContent = "Delete Collection in dropdown"; // Original label text
-        deleteLabel.style.color = ""; // Reset color
-    }, 5000); // 5 seconds timeout
+        deleteLabel.textContent = "Delete Collection in dropdown"; 
+    }, 5000);
 }
 
 // Helper function to clear collections and reset input
@@ -218,26 +192,29 @@ function clearCollectionsAndInput() {
     emailInput.value = "";
 }
 
-// UI Reset Functions
-
-
 // Function to reset input and button appearance
 function resetInputAndButton() {
     const emailInput = document.querySelector('#email-input');
     const addToCollectionButton = document.querySelector('.add-to-collection-button');
 
-    emailInput.style.border = "";  // Reset email input border
-    addToCollectionButton.style.border = "";  // Reset button border
-    addToCollectionButton.textContent = "Add to Collection";  // Reset button text
+    emailInput.style.border = "";  
+    addToCollectionButton.style.border = "";  
+    addToCollectionButton.textContent = "Add to Collection";  
 }
 
+// ** Event Listeners **
 
-// Event Listeners
+// Event listener for email dropdown change (auto-updates email input)
+document.querySelector('#email-dropdown').addEventListener('change', function () {
+    const selectedEmail = this.value; // Get selected email
+    const emailInput = document.querySelector('#email-input');
+    
+    if (selectedEmail) {
+        emailInput.value = selectedEmail; // Update input field
+    }
 
-
-// Event listener for email dropdown change
-document.querySelector('#email-dropdown').addEventListener('change', () => {
     resetInputAndButton();
+    loadEmailCollection(selectedEmail);
 });
 
 // Load email dropdown and collections on page load
@@ -246,5 +223,3 @@ document.addEventListener('DOMContentLoaded', () => {
     const dropdown = document.querySelector('#email-dropdown');
     dropdown.value = "";  // Reset dropdown selection
 });
-
-
